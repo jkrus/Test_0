@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ .OrderUid}}</title>
+    </head>
+    <body>
+        <form action="http://localhost:8080/api/v1/order/" method="get">
+            <p><label>Введите ID заказа:</label></p>
+            <p><input type="text" name="ouid" value="b563feb7b2b84b6test0"></p>
+            <input type="submit" value="Отправить">
+        </form>
+
+      <table border="1">
+        <caption>Order</caption>
+        <th class=sheader colspan=2>Order:</th>
+        <tr><td>	OrderUid </td><td class='string'> {{.OrderUid}}</td></tr>
+        <tr><td>	TrackNumber </td><td class='string'> {{ .TrackNumber}} </td></tr>
+        <tr><td>	Entry </td><td class='string'> {{ .Entry}} </td></tr>
+        <tr><td>	Locale </td><td class='string'> {{ .Locale}} </td></tr>
+        <tr><td>	InternalSignature </td><td class='string'> {{ .InternalSignature}} </td></tr>
+        <tr><td>	CustomerId </td><td class='string'> {{ .CustomerId}} </td></tr>
+        <tr><td>	DeliveryService </td><td class='string'> {{ .DeliveryService}} </td></tr>
+        <tr><td>	Shardkey </td><td class='string'> {{ .Shardkey}} </td></tr>
+        <tr><td>	SmId </td><td class='string'> {{ .SmId}} </td></tr>
+        <tr><td>	CreatedAt </td><td class='string'> {{ .CreatedAt}} </td></tr>
+        <tr><td>	OofShard </td><td class='string'> {{ .OofShard}} </td></tr>
+
+        <th class=sheader colspan=2>Delivery:</th>
+        <tr><td>	Name </td><td class='string'> {{.Delivery.Name}}</td></tr>
+        <tr><td>	Phone </td><td class='string'> {{ .Delivery.Phone}} </td></tr>
+        <tr><td>	Zip </td><td class='string'> {{ .Delivery.Zip}} </td></tr>
+        <tr><td>	City </td><td class='string'> {{ .Delivery.City}} </td></tr>
+        <tr><td>	Address </td><td class='string'> {{ .Delivery.Address}} </td></tr>
+        <tr><td>	Region </td><td class='string'> {{ .Delivery.Region}} </td></tr>
+
+        <th class=sheader colspan=2>Payment:</th>
+        <tr><td>	Transaction </td><td class='string'> {{.Payment.Transaction}}</td></tr>
+        <tr><td>	RequestId </td><td class='string'> {{ .Payment.RequestId}} </td></tr>
+        <tr><td>	Currency </td><td class='string'> {{ .Payment.Currency}} </td></tr>
+        <tr><td>	Provider </td><td class='string'> {{ .Payment.Provider}} </td></tr>
+        <tr><td>	Amount </td><td class='string'> {{ .Payment.Amount}} </td></tr>
+        <tr><td>	PaymentDt </td><td class='string'> {{ .Payment.PaymentDt}} </td></tr>
+        <tr><td>	Bank </td><td class='string'> {{.Payment.Bank}}</td></tr>
+        <tr><td>	DeliveryCost </td><td class='string'> {{ .Payment.DeliveryCost}} </td></tr>
+        <tr><td>	GoodsTotal </td><td class='string'> {{ .Payment.GoodsTotal}} </td></tr>
+        <tr><td>	CustomFee </td><td class='string'> {{ .Payment.CustomFee}} </td></tr>
+
+        <th class=sheader colspan=2>Items:</th>
+        <ul>
+         {{range .Items}}
+             <tr class=sheader colspan=2><td><b>Item:<b></td></tr>
+             <tr><td> ChrtId </td><td class='string'> {{.ChrtId}}</td></tr>
+             <tr><td> TrackNumber </td><td class='string'> {{.TrackNumber}}</td></tr>
+             <tr><td> Price </td><td class='string'> {{.Price}}</td></tr>
+             <tr><td> Rid </td><td class='string'> {{.Rid}}</td></tr>
+             <tr><td> Name </td><td class='string'> {{.Name}}</td></tr>
+             <tr><td> Sale </td><td class='string'> {{.Sale}}</td></tr>
+             <tr><td> Size </td><td class='string'> {{.Size}}</td></tr>
+             <tr><td> TotalPrice </td><td class='string'> {{.TotalPrice}}</td></tr>
+             <tr><td> NmId </td><td class='string'> {{.NmId}}</td></tr>
+             <tr><td> Brand </td><td class='string'> {{.Brand}}</td></tr>
+             <tr><td> Status </td><td class='string'> {{.Status}}</td></tr>
+             {{end}}
+         </ul>
+       </table>
+    </body>
+</html>
